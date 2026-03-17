@@ -21,6 +21,9 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json({ limit: "1mb" }));
 
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
 app.get("/health", (req, res) => res.json({ status: "ok" }));
 app.use("/auth", authRoutes);
 app.use("/history", historyRoutes);
